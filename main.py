@@ -1,6 +1,6 @@
 """Начальный сценарий системы управления заявками на закупку."""
 
-from datetime import date
+from datetime import UTC, date, datetime
 
 
 def calculate_total(price: float, quantity: int) -> float:
@@ -23,7 +23,7 @@ product_name = "Ноутбук"
 unit_price = 75000.0
 quantity = int("2")
 budget_limit = 160000.0
-request_date = date.today()
+request_date = datetime.now(UTC).date()
 
 total_cost = calculate_total(unit_price, quantity)
 request_number = create_request_number(employee_id, request_date)
